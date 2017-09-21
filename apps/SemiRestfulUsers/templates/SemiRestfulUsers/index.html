@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+  <script src=" https://code.jquery.com/jquery-3.2.1.slim.min.js "></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js ">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js">
+  </script>
+  <title>SemiRestulUsers</title>
+</head>
+
+<body>
+  <div id="wrapper" class="container-fluid">
+    <h2> Users</h2>
+    <div id="user_list" class="container-fluid">
+      <table class="table table-hover container-fluid borde">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Created At</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr> {% for u in users %}
+
+            <td scope="row">{{u.id}}</td>
+            <td>{{u.first_name}} {{u.last_name}}</td>
+            <td>{{u.email}}</td>
+            <td>{{u.created_at}}</td>
+            <form action='process' method='post'>
+              <td>Show Edit Delete </td>
+          </tr>
+          {%endfor%} {% csrf_token %}
+
+        </tbody>
+      </table>
+      <a href="{% url 'new_user'%}">Add a new user</a>
+    </div>
+
+  </div>
+  </div>
+</body>
+
+</html>
